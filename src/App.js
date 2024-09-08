@@ -8,6 +8,8 @@ import Mypage from './components/Mypage/Mypage'
 import Login from './components/Login/Login'
 import { Join } from './components/Join/Join'
 import Nav from './components/Section/Nav'
+import Signup from './components/Login/Signup'
+import SigngupSuccess from './components/Login/Signup_success'
 
 const App = () => {
     return (
@@ -20,6 +22,8 @@ const App = () => {
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/join' element={<Join />} />
+                <Route path='/signup' element={<Signup/>} />
+                <Route path='/signupSuccess' element={<SigngupSuccess/>} />
             </Routes>
             <Nav />
         </BrowserRouter>

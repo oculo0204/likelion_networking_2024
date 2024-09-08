@@ -1,0 +1,32 @@
+.back-btn-head {
+    position: fixed;
+    left: 50%;
+    top: 56px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    a{
+
+        .back-btn-img {
+            width: auto;
+            height: auto;
+            max-width: 40px;
+            max-height: 40px;
+        }
+    }
+    h1{
+        height: auto;
+        width: 396px;
+        font-family: 'Pretendard', sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 23.87px;
+        text-align: center;
+    }
+}

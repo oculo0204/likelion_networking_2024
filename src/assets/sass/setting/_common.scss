@@ -27,3 +27,7 @@ body {
 input {
     outline: none;
 }
+input::placeholder {
+    color: var(--placeholder); /* 원하는 색상으로 변경 */
+    opacity: 1; /* 기본값은 0.5로, 필요에 따라 변경 가능 */
+}
