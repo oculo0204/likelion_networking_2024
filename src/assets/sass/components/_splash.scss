@@ -1,21 +1,11 @@
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'seolleimcool-SemiBold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/seolleimcool-SemiBold.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+
 .splash-main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    z-index: 500;
+    position: relative;
     h2{
         width: 124px;
         height: 36px;
@@ -53,13 +43,12 @@
             margin-top: 10px;
             gap: 0px;
             opacity: 0px;
-            font-family: 'GmarketSansMedium';
+            font-family: 'GmarketSansLight';
             font-size: 16px;
             font-weight: 300;
             line-height: 16px;
             text-align: center;
             color: var(--highmain);
-            opacity: 0.8;
         }
         .Tosignin-btn{
             width: 301px;
