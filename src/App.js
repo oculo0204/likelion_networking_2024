@@ -8,6 +8,7 @@ import Mypage from './components/Mypage/Mypage'
 import Login from './components/Login/Login'
 import { Join } from './components/Join/Join'
 import Nav from './components/Section/Nav'
+import Team from './components/Team/Team'
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
             <Header />
             <Routes>
                 <Route path='/' element={<Main />} />
+                <Route path='/team' element={<Team />} />
                 <Route path='/suggest' element={<Suggest />} />
                 <Route path='/report' element={<Report />} />
                 <Route path='/mypage' element={<Mypage />} />
