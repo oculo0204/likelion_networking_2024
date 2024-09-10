@@ -198,11 +198,58 @@
 
         .btn_box {
             width: 100%;
-        
+
             .delete {
                 border: 1px solid var(--main);
                 color: var(--main);
             }
+        }
+    }
+}
+
+.TeamJoin_wrap {
+    position: relative;
+    z-index: 20;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-weight: 500;
+        font-size: 16px;
+        color: #969AA3;
+        margin-bottom: 40px;
+    }
+
+    .btn_box {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            height: 50px;
+            width: 300px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            background-color: var(--main);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .join {
+            background-color: var(--white);
+            color: var(--main);
+            border: 1px solid var(--main);
         }
     }
 }

@@ -9,6 +9,9 @@ import Login from './components/Login/Login'
 import { Join } from './components/Join/Join'
 import Nav from './components/Section/Nav'
 import Team from './components/Team/Team'
+import TeamJoin from './components/Team/TeamJoin'
+import Travel from './components/Travel/Travel'
+import TravelNow from './components/Travel/TravelNow'
 
 const App = () => {
     return (
@@ -17,6 +20,10 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/team' element={<Team />} />
+                <Route path='/teamjoin' element={<TeamJoin />} />
+                <Route path='/travel' element={<Travel />} />
+                <Route path='/travelnow' element={<TravelNow />} />
+
                 <Route path='/suggest' element={<Suggest />} />
                 <Route path='/report' element={<Report />} />
                 <Route path='/mypage' element={<Mypage />} />
