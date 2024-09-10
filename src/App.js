@@ -21,15 +21,15 @@ const App = () => {
 };
 
 const AppContent = () => {
-    const location = useLocation();
+    // const location = useLocation();
     
-    // Header와 Nav를 숨길 경로 설정
-    const showHeader = ['/login', '/login/signup'].includes(location.pathname);
-    const hideNav = ['/login', '/login/signup', '/login/signupSuccess', '/login/splash'].includes(location.pathname);
+    // // Header와 Nav를 숨길 경로 설정
+    // const showHeader = ['/login', '/login/signup'].includes(location.pathname);
+    // const hideNav = ['/login', '/login/signup', '/login/signupSuccess', '/login/splash'].includes(location.pathname);
 
     return (
         <>
-            {showHeader && <Header />}
+            <Header />
             <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/suggest' element={<Suggest />} />
@@ -38,7 +38,7 @@ const AppContent = () => {
                 <Route path='/login/*' element={<LoginRoutes />} /> {/* Login 관련 라우트 */}
                 <Route path='/join' element={<Join />} />
             </Routes>
-            {!hideNav && <Nav />}
+            <Nav />
         </>
     );
 };
