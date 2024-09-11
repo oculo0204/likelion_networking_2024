@@ -11,7 +11,7 @@ import Nav from './components/Section/Nav'
 import Team from './components/Team/Team'
 import TeamJoin from './components/Team/TeamJoin'
 import Travel from './components/Travel/Travel'
-import TravelNow from './components/Travel/TravelNow'
+import TravelDetail from './components/Travel/TravelDetail'
 
 const App = () => {
     return (
@@ -21,8 +21,8 @@ const App = () => {
                 <Route path='/' element={<Main />} />
                 <Route path='/team' element={<Team />} />
                 <Route path='/teamjoin' element={<TeamJoin />} />
-                <Route path='/travel' element={<Travel />} />
-                <Route path='/travelnow' element={<TravelNow />} />
+                <Route path='/travel/:now' element={<Travel />} />
+                <Route path='/traveldetail' element={<TravelDetail />} />
 
                 <Route path='/suggest' element={<Suggest />} />
                 <Route path='/report' element={<Report />} />

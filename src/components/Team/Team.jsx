@@ -13,7 +13,7 @@ const Team = () => {
     const [memo, setMemo] = useState('');
     const [popup, setPopup] = useState(true)
 
-    const years = Array.from({ length: 50 }, (_, i) => 2024 - i);
+    const years = Array.from({ length: 10 }, (_, i) => 2033 - i);
     const months = Array.from({ length: 12 }, (_, i) => i + 1);
     const days = Array.from({ length: 31 }, (_, i) => i + 1);
 

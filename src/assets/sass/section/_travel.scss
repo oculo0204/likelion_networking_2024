@@ -1,10 +1,20 @@
 .Travel_wrap,
-.TravelNow_wrap {
+.TravelDetail_wrap {
     padding: 80px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+
+    .nav {
+        background-color: #7C7C7C;
+        height: 50px;
+        width: 50px;
+        top: 0;
+        right: 0;
+        z-index: 30;
+        position: absolute;
+    }
 
     >div {
         .header {
@@ -26,24 +36,49 @@
             }
         }
 
-        .main {
+        a,
+        button {
+            display: flex;
+            border-radius: 8px;
+            width: 100%;
+            height: 50px;
+            background-color: var(--main);
+            color: var(--white);
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-bottom: 20px;
 
-            a,
-            button {
+            img {
+                width: 24px;
+                margin-right: 10px;
+            }
+        }
+
+        .main {
+            label {
+                position: relative;
+                width: 31.5%;
+                height: 36px;
+                border-radius: 16px;
+                border: 1px solid #E2E8F0;
                 display: flex;
-                border-radius: 8px;
-                width: 100%;
-                height: 50px;
-                background-color: var(--main);
-                color: var(--white);
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
-                font-size: 20px;
                 margin-bottom: 20px;
 
+                select {
+                    background-color: var(--none);
+                    padding: 8px 16px;
+                    width: 100%;
+                    outline: none;
+                    color: var(--placeholder);
+                }
+
                 img {
-                    width: 24px;
-                    margin-right: 10px;
+                    width: 16px;
+                    position: absolute;
+                    right: 8px;
                 }
             }
 
@@ -56,13 +91,14 @@
                     justify-content: space-between;
                     align-items: center;
                     padding: 15px 20px;
+                    margin-bottom: 10px;
 
                     >div {
                         display: flex;
                         align-items: center;
 
                         .member {
-                            width: 96px;
+                            width: 95px;
                             height: 30px;
                             border-radius: 12px;
                             background-color: var(--white);
@@ -74,6 +110,10 @@
                             justify-content: center;
                             align-items: center;
                             margin-right: 20px;
+                        }
+
+                        .travel_memeber {
+                            width: 45px;
                         }
 
                         .title {
@@ -88,6 +128,11 @@
                     }
                 }
             }
+        }
+        .travel_main {
+            padding: 25px 20px;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
         }
     }
 
