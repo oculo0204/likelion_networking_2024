@@ -1,0 +1,29 @@
+.btns {
+    display: flex;
+    gap: 20px;
+}
+
+.btns button{
+    cursor: pointer;
+        background-color: var(--white);
+        color : var(--main);
+        width: 200px;
+        height: 100px;
+        border: 1px solid var(--main);
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 20px;
+
+        &:active {
+                background-color: var(--main);
+                color: var(--white);
+            }
+    }
+
+.mainLogin_wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 50px;
+  }

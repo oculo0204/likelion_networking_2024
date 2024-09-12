@@ -12,4 +12,18 @@
 // section 폴더 아래 자신이 작업하는 components scss를 생성합니다.
 // _(이름).scss 입니다. 
 
-@import "section/section"
+@import "section/section";
+
+@import "section/components/mainlogout";
+@import "section/components/mainlogin";
+@import "section/components/suggest";
+@import "section/components/suggestDetail";
+@import "section/components/aiResult";
+@import "section/components/aiResultPart";
+@import "section/components/aiSuggest";
+@import "section/components/subHeader";
+
+
+
+
+

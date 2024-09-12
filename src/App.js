@@ -9,6 +9,13 @@ import Login from './components/Login/Login'
 import { Join } from './components/Join/Join'
 import Nav from './components/Section/Nav'
 
+import MainLogout from './components/Main/MainLogout'
+import MainLogin from './components/Main/MainLogin'
+import AiSuggest from './components/Suggest/AiSuggest'
+import AiResult from './components/Suggest/AiResult'
+import AiResultPart from './components/Suggest/AiResultPart'
+import SuggestDetail from './components/Suggest/SuggestDetail'; // 동적 페이지 컴포넌트
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -20,6 +27,15 @@ const App = () => {
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/join' element={<Join />} />
+
+                <Route path='/mainlogout' element={<MainLogout />} />
+                <Route path='/mainlogin' element={<MainLogin />} />
+                <Route path="/suggest/:id" element={<SuggestDetail />} />
+                <Route path='/aiSuggest' element={<AiSuggest />} />
+                <Route path='/aiResult' element={<AiResult />} />
+                <Route path='/aiResultPart' element={<AiResultPart />} />
+
+
             </Routes>
             <Nav />
         </BrowserRouter>
