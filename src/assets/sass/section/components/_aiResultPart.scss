@@ -30,12 +30,13 @@
 
 .suggest_wrap {
     position: relative;
+
 }
 
 .topBtn {
-    position: absolute;
-    bottom: 100px;
-    right: 20px;
+    position: fixed;
+    bottom: 40px;
+    right: 550px;
     cursor: pointer;
     z-index: 1000;
 }
