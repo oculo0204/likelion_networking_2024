@@ -5,14 +5,7 @@ import image96 from '../../assets/img/suggest/image96.svg';
 import topBtn from '../../assets/img/suggest/topBtn.svg';
 
 const Suggest = () => {
-<<<<<<< HEAD
-    return (
-        <div className='container'>Suggest</div>
-    )
-}
-=======
     const navigate = useNavigate();
->>>>>>> origin/siyoon
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

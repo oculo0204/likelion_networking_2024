@@ -1,3 +1,4 @@
+
 .Header_wrap {
     background-color: var(--white);
     position: fixed;
@@ -16,7 +17,6 @@
     img {
         width: 91px;
     }
-    z-index: 300;
 }
 
 .Nav_wrap {
@@ -32,5 +32,4 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index:100;
 }
