@@ -19,6 +19,13 @@ import SignupSuccess from './components/Login/Signup_success';
 import Splash from './components/Login/Splash';
 import MypageProfile from './components/Mypage/Profile'
 
+import MainLogout from './components/Main/MainLogout'
+import MainLogin from './components/Main/MainLogin'
+import AiSuggest from './components/Suggest/AiSuggest'
+import AiResult from './components/Suggest/AiResult'
+import AiResultPart from './components/Suggest/AiResultPart'
+import SuggestDetail from './components/Suggest/SuggestDetail'; // 동적 페이지 컴포넌트
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -39,6 +46,15 @@ const App = () => {
                 <Route path='/mypage/*' element={<MypageRoutes />} /> {/* Mypage 관련 라우트 */}
                 <Route path='/login/*' element={<LoginRoutes />} /> {/* Login 관련 라우트 */}
                 <Route path='/join' element={<Join />} />
+
+                <Route path='/mainlogout' element={<MainLogout />} />
+                <Route path='/mainlogin' element={<MainLogin />} />
+                <Route path="/suggest/:id" element={<SuggestDetail />} />
+                <Route path='/aiSuggest' element={<AiSuggest />} />
+                <Route path='/aiResult' element={<AiResult />} />
+                <Route path='/aiResultPart' element={<AiResultPart />} />
+
+
             </Routes>
             <Nav />
         </BrowserRouter>

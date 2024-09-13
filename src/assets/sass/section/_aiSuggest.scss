@@ -1,0 +1,122 @@
+.main {
+        background-color: var(--box);
+        border-radius: 20px;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 477px;
+        margin-top: 20px;
+
+        >input {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--placeholder);
+            text-align: center;
+            background-color: var(--none);
+        }
+
+        .day {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .time_wrap {
+                height: 192px;
+                border-radius: 8px;
+                background-color: var(--white);
+                padding: 16px;
+                border: 1px solid #E2E8F0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                >div {
+                    h3 {
+                        text-align: left;
+                        font-size: 16px;
+                        color: var(--placeholder);
+                        margin-bottom: 12px;
+                    }
+                }
+
+                    .toggle_wrap {
+                        display: flex;
+                        justify-content: space-between;
+
+                        label {
+                            position: relative;
+                            width: 31.5%;
+                            height: 36px;
+                            border-radius: 16px;
+                            border: 1px solid #E2E8F0;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            select {
+                                background-color: var(--none);
+                                padding: 8px 16px;
+                                width: 100%;
+                                outline: none;
+                                color: var(--placeholder);
+                            }
+
+                            img {
+                                width: 16px;
+                                position: absolute;
+                                right: 8px;
+                            }
+                        }
+                    }
+
+            }
+        }
+
+}
+.budget_wrap,
+.people_wrap {
+    margin-bottom: 20px;
+}
+.input_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background-color: var(--white);
+}
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    color: var(--placeholder);
+}
+
+input[type="number"]::placeholder {
+    color: #64748B;
+}
+
+input[type="number"] + span,
+select + img {
+    margin-left: 8px;
+    color: var(--main);
+}
+
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
+
+
+img {
+    width: 16px;
+    height: 16px;
+}
+
