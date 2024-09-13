@@ -14,6 +14,10 @@ import Team from './components/Team/Team'
 import TeamJoin from './components/Team/TeamJoin'
 import Travel from './components/Travel/Travel'
 import TravelDetail from './components/Travel/TravelDetail'
+import Signup from './components/Login/Signup';
+import SignupSuccess from './components/Login/Signup_success';
+import Splash from './components/Login/Splash';
+import MypageProfile from './components/Mypage/Profile'
 
 const App = () => {
     return (
@@ -32,11 +36,35 @@ const App = () => {
                 <Route path='/settle' element={<Settle />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/mypage/*' element={<MypageRoutes />} /> {/* Mypage 관련 라우트 */}
+                <Route path='/login/*' element={<LoginRoutes />} /> {/* Login 관련 라우트 */}
                 <Route path='/join' element={<Join />} />
             </Routes>
             <Nav />
         </BrowserRouter>
-    )
-}
+    );
+};
 
-export default App
+// Mypage 관련 라우트 컴포넌트
+const MypageRoutes = () => {
+    return (
+        <Routes>
+            <Route path='/' element={<Mypage />} />
+            <Route path='profile' element={<MypageProfile />} />
+        </Routes>
+    );
+};
+
+// Login 관련 라우트 컴포넌트
+const LoginRoutes = () => {
+    return (
+        <Routes>
+            <Route path='/' element={<Login />} />
+            <Route path='signup' element={<Signup />} />
+            <Route path='signupSuccess' element={<SignupSuccess />} />
+            <Route path='splash' element={<Splash />} />
+        </Routes>
+    );
+};
+
+export default App;

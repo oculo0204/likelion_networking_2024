@@ -2,7 +2,7 @@ import React from 'react'
 
 const Suggest = () => {
     return (
-        <div>Suggest</div>
+        <div className='container'>Suggest</div>
     )
 }
 
