@@ -18,7 +18,7 @@ const Settle = () => {
 
     const handleMemberChange = (event) => {
         const selectedMember = event.target.value;
-        setSelectedMember(selectedMember);  // 드롭다운에서 선택된 멤버 상태 업데이트
+        setSelectedMember(selectedMember);
     };
 
     const closeModal = () => {
@@ -26,16 +26,21 @@ const Settle = () => {
         setSelectedUser('');
     };
 
+    const handleFinishSettlement = () => {
+        // 정산 완료 모달 표시
+        setSelectedUser('정산 완료');
+        setModalOpen(true);
+    };
+
     const totalCollected = 1000000;
-    const totalSpent = 980000; // 모자란 금액 예시
+    const totalSpent = 1080000; // 금액 예시
     const remainingAmount = totalCollected - totalSpent;
 
     return (
         <div className='Settle_wrap container'>
-            {/* 상단 헤더 */}
             <div className='back-btn'>
                 <a href='javascript:history.back()'>
-                    <img src={BackIcon} alt="Back icon" className='back-btn-img'/>
+                    <img src={BackIcon} alt="Back icon" className='back-btn-img' />
                 </a>
                 <h1>금액 정산하기</h1>
             </div>
@@ -115,7 +120,7 @@ const Settle = () => {
                             {/* 선택된 멤버 프로필 */}
                             {selectedMember && (
                                 <div className="profile-group">
-                                    <div className="profile" onClick={() => handleProfileClick(selectedMember + '님')}>
+                                    <div className="profile" onClick={() => handleProfileClick(selectedMember)}>
                                         <div className="profile-img"></div>
                                         <span>{selectedMember}님</span>
                                     </div>
@@ -127,10 +132,10 @@ const Settle = () => {
             )}
 
             {/* 정산 완료하기 버튼 */}
-            <button className="finish-btn">정산 완료하기</button>
+            <button className="finish-btn" onClick={handleFinishSettlement}>정산 완료하기</button>
 
             {/* 모달창 */}
-            {modalOpen && (
+            {modalOpen && selectedUser !== '정산 완료' && (
                 <>
                     <div className="modal-overlay" onClick={closeModal}></div>
                     <div className="modal">
@@ -138,6 +143,20 @@ const Settle = () => {
                             <p>계좌번호가 복사되었어요!</p>
                             <p className="small-text">{selectedUser}님의 계좌번호를 편리하게 붙여넣으세요!</p>
                             <button onClick={closeModal} className="close-btn">✕</button>
+                        </div>
+                    </div>
+                </>
+            )}
+
+            {/* 정산 완료 모달 */}
+            {modalOpen && selectedUser === '정산 완료' && (
+                <>
+                    <div className="modal-overlay" onClick={closeModal}></div>
+                    <div className="modal">
+                        <div className="modal-content">
+                            <p className='complete-text'>고생하셨어요! 🎉</p>
+                            <p className="complete-smalltext">모든 과정이 완료되었어요</p>
+                            <button className="home-btn" onClick={() => { window.location.href = '/' }}>홈으로 돌아가기</button>
                         </div>
                     </div>
                 </>
