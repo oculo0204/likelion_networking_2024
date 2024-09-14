@@ -1,0 +1,47 @@
+.detailBox {
+     background-color: var(--box);
+        border-radius: 20px;
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+
+    h2{
+        font-weight: 700;
+        font-size: 20px;
+        }
+
+    h4{
+        font-weight: 600;
+        font-size: 18px;
+        margin: 8px 0;
+        }
+
+    p{
+        font-size: 14px;
+        }
+    }
+
+ li {
+        ul {
+            margin-left: 20px;
+        }
+    }
+
+.suggest_wrap {
+    position: relative;
+
+}
+
+.topBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 550px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.topBtn img {
+    width: 70px;
+    height: 70px;
+}

@@ -1,4 +1,6 @@
+
 .Header_wrap {
+    background-color: var(--white);
     position: fixed;
     left: 50%;
     top: 0;
@@ -10,6 +12,7 @@
     justify-content: left;
     align-items: center;
     padding-left: 20px;
+    z-index: 10;
 
     img {
         width: 91px;
@@ -17,6 +20,7 @@
 }
 
 .Nav_wrap {
+    background-color: var(--white);
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -28,6 +32,4 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    
 }

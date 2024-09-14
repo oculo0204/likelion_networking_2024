@@ -13,8 +13,29 @@
 // _(이름).scss 입니다. 
 
 @import "section/section";
+@import "section/team";
+@import "section/travel";
+@import "section/report";
+@import "section/record";
+@import "section/settle";
+@import "section/back-btn";
+@import "section/login";
+@import "section/signup";
+@import "section/sign-success";
+@import "section/splash";
+@import "section/mypage";
+@import "section/profile";
 
-// components
-@import "components/report";
-@import "components/record";
-@import "components/settle";
+@import "section/mainlogout";
+@import "section/mainlogin";
+@import "section/suggest";
+@import "section/suggestDetail";
+@import "section/aiResult";
+@import "section/aiResultPart";
+@import "section/aiSuggest";
+@import "section/subHeader";
+
+
+
+
+
