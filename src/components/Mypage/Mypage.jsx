@@ -4,10 +4,12 @@ import WriteBtn from '../../assets/img/Mypage/profile-write.svg';
 import DetailBtn from '../../assets/img/Mypage/toDetail-btn.svg';
 import Close from '../../assets/img/Mypage/close.svg';
 import DefaultProfilePic from '../../assets/img/Mypage/profile_default.svg'; // 임시 프로필 이미지
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Mypage = () => {
     const [isLogoutVisible, setIsLogoutVisible] = useState(false);
-
+    const navigate = useNavigate;
     const handleLogin = () => {
         document.getElementById("actionSheet").classList.add("active");
     };
@@ -19,8 +21,9 @@ const Mypage = () => {
         }, 1000); 
     };
 
-    const handleLogout = () => {
-        setIsLogoutVisible(true); // 로그아웃 완료 상태로 변경
+    const handleLogout = async() => {
+        setIsLogoutVisible(true); // 로그아웃 완료 상태 토글 띄어줌
+    
     };
 
     const profileImageUrl = DefaultProfilePic; // 임시로 로컬 이미지를 사용
