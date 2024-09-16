@@ -8,6 +8,7 @@ Chart.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Lege
 
 const Report = () => {
     const [modalOpen, setModalOpen] = useState(false);
+    const [collectedAmount, setCollectedAmount] = useState('');
 
     const spendingData = {
         labels: ['숙소', '식사', '술', '교통', '기타'],
@@ -257,17 +258,29 @@ const Report = () => {
 
            
             {modalOpen && (
-                <>
-                    <div className="modal-overlay" onClick={closeModal}></div>
-                    <div className="modal">
-                        <div className="modal-content">
-                            <p>여행 전 걷은 금액을 입력하세요</p>
-                            <p className="small-text">걷은 금액과 지출액을 뺀 정산액을 알려드릴게요</p>
-                            <button onClick={closeModal} className="close-btn">✕</button>
-                        </div>
-                    </div>
-                </>
-            )}
+    <>
+        <div className="modal-overlay" onClick={closeModal}></div>
+        <div className="modal">
+            <div className="modal-content">
+                <p>여행 전 걷은 금액을 입력하세요</p>
+                <p className="small-text">걷은 금액과 지출액을 뺀 정산액을 알려드릴게요</p>
+
+                <input 
+                    type="text" 
+                    className="modal-input" 
+                    placeholder="숫자만 입력하세요" 
+                    value={collectedAmount} 
+                    onChange={(e) => setCollectedAmount(e.target.value)}
+                />
+                <button onClick={closeModal} className="close-btn">✕</button>
+                <button className="complete-btn" onClick={() => { /* 정산 완료하기 버튼 클릭 시 로직 추가 */ }}>
+                    정산 완료하기
+                </button>
+            </div>
+        </div>
+    </>
+)}
+
         </div>    );
 };
 

@@ -33,7 +33,7 @@ const Settle = () => {
     };
 
     const totalCollected = 1000000;
-    const totalSpent = 1080000; // 금액 예시
+    const totalSpent = 980000; // 금액 예시
     const remainingAmount = totalCollected - totalSpent;
 
     return (
