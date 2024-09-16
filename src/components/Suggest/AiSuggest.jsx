@@ -21,17 +21,15 @@ const AiSuggest = () => {
      const peopleOptions = Array.from({ length: 10 }, (_, i) => i + 1);
 
     return (
-        <div className='container'>
-            <div className='suggest_wrap'>
+        <div className='AiSuggest_wrap container'>
+            <div>
                     <div className='subHeader'>
                          <button onClick={() => navigate(-1)}>
                             <img src={Back} alt="Back" className='back' />
                         </button>
                         <h1>AI 여행지 추천받기</h1>
                     </div>
-
-
-                <div className="main">
+                <div className="Ai-Box">
                      <div className="budget_wrap">
                         <div className="input_wrap">
                             <input
@@ -84,7 +82,7 @@ const AiSuggest = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div className='comeback'>
+                            <div className='arrival'>
                                 <h3>도착</h3>
                                 <div className='toggle_wrap'>
                                     <label>
@@ -141,7 +139,21 @@ const AiSuggest = () => {
                             <img src={Down} alt="" />
                         </div>
                     </div>
-                    <Link to="/aiResult">
+                    <Link
+                        to={{
+                            pathname: '/aiResult',
+                        }}
+                        state={{
+                            budget: budget,
+                            startyear: startyear,
+                            startmonth: startmonth,
+                            startday: startday,
+                            backyear: backyear,
+                            backmonth: backmonth,
+                            backday: backday,
+                            people: people,
+                        }}
+                    >
                         <button className="blueBtn"> AI 추천 결과 확인하기 </button>
                     </Link>
                 </div>

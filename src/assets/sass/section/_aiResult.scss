@@ -1,59 +1,142 @@
-ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
+.AiResult_wrap,
+.AiResultPart_wrap{
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height: auto;
 
-.resultBox {
-     background-color: var(--box);
+    .blueBox {
+        width: 460px;
+        height: 55px;
+        background-color: var(--sub);
+        border-radius: 20px;
+        padding: 15px 10px;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .infoTags {
+            width: 235px;
+            height: 30px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .tag {
+            background-color: white;
+            border: 1px solid var(--main);
+            border-radius: 12px;
+            padding: 5px 15px;
+            color: var(--main);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .resultBox {
+        background-color: var(--box);
         border-radius: 20px;
         padding: 16px 20px;
         display: flex;
         flex-direction: column;
         margin-top: 20px;
 
-    h2{
-        font-weight: 500;
-        font-size: 20px;
-        margin-bottom: 8px;
+        h2{
+            font-weight: 500;
+            font-size: 20px;
+            margin-bottom: 8px;
         }
 
-    p{
-        font-size: 14px;
+        p{
+            font-size: 14px;
         }
     }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
 
-.blueBtnWide {
-    @extend .blueBtn;
-    width: 460px;
+        .whiteBtnWide {
+            cursor: pointer;
+            background-color: var(--white);
+            color: var(--main);
+            width: 460px;
+            height: 50px;
+            border: 1px solid var(--main);
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 20px;
+
+            &:active {
+                background-color: var(--main);
+                color: var(--white);
+            }
+        }
+
+        .blueBtnWide {
+            background-color: var(--main);
+            color: var(--white);
+            width: 460px;
+            height: 50px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 20px;
+
+            &:active {
+                background-color: var(--white);
+                color: var(--main);
+                border: 1px solid var(--main);
+                border-radius: 8px;
+            }
+        }
+    }
 }
 
-.blueBox {
-    width: 460px;
-    height: 55px;
-    background-color: var(--sub);
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.AiResultPart_wrap .detailBox {
+    background-color: var(--box);
+    padding: 25px 20px;
     border-radius: 20px;
-    padding: 15px 10px;
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    width: 460px;
+    margin-bottom: 25px;
 
-.infoTags {
-    width: 235px;
-    height: 30px;
-    display: flex;
-    gap: 5px;
-}
+    p {
+        margin: 10px 0;
+        color: var(--black);
+    }
 
-.tag {
-    background-color: white;
-    border: 1px solid var(--main);
-    border-radius: 12px;
-    padding: 5px 15px;
-    color: var(--main);
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--black100);
+    }
+
+    h4 {
+        color: var(--black);
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 30px;
+    }
+    .partDay {
+        margin-bottom: 10px;
+    }
+
+    .pTop {
+        margin-top: 10px;
+    }
 }

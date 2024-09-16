@@ -1,19 +1,29 @@
-.main {
+.AiSuggest_wrap {
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height: auto;
+
+    .Ai-Box {
+        width: 460px;
         background-color: var(--box);
         border-radius: 20px;
-        padding: 30px 20px;
+        padding: 25px 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 477px;
-        margin-top: 20px;
+        gap: 10px;
 
-        >input {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--placeholder);
-            text-align: center;
-            background-color: var(--none);
+        .input_wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--black300);
+            border-radius: 8px;
+            padding: 8px 16px;
+            background-color: var(--white);
         }
 
         .day {
@@ -26,97 +36,112 @@
                 border-radius: 8px;
                 background-color: var(--white);
                 padding: 16px;
-                border: 1px solid #E2E8F0;
+                border: 1px solid var(--black300);
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
 
-                >div {
+                > div {
                     h3 {
                         text-align: left;
                         font-size: 16px;
+                        font-weight: 400;
                         color: var(--placeholder);
-                        margin-bottom: 12px;
+                        margin-bottom: 10px;
                     }
                 }
 
-                    .toggle_wrap {
+                .toggle_wrap {
+                    display: flex;
+                    justify-content: space-between;
+
+                    label {
+                        position: relative;
+                        width: 120px;
+                        height: 36px;
+                        border-radius: 16px;
+                        border: 1px solid var(--black300);
                         display: flex;
                         justify-content: space-between;
+                        align-items: center;
 
-                        label {
-                            position: relative;
-                            width: 31.5%;
-                            height: 36px;
-                            border-radius: 16px;
-                            border: 1px solid #E2E8F0;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
+                        select {
+                            background-color: var(--none);
+                            padding: 8px 16px;
+                            width: 100%;
+                            outline: none;
+                            color: var(--black200);
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
 
-                            select {
-                                background-color: var(--none);
-                                padding: 8px 16px;
-                                width: 100%;
-                                outline: none;
-                                color: var(--placeholder);
-                            }
-
-                            img {
-                                width: 16px;
-                                position: absolute;
-                                right: 8px;
-                            }
+                        img {
+                            width: 16px;
+                            position: absolute;
+                            right: 10px;
                         }
                     }
+                }
 
             }
         }
 
-}
-.budget_wrap,
-.people_wrap {
-    margin-bottom: 20px;
-}
-.input_wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 8px 16px;
-    background-color: var(--white);
-}
-input[type="number"],
-select {
-    width: 100%;
-    padding: 8px;
-    border: none;
-    outline: none;
-    color: var(--placeholder);
-}
+        .blueBtn {
+            background-color: var(--main);
+            color: var(--white);
+            width: 420px;
+            height: 50px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 20px;
+            margin-top: 10px;
 
-input[type="number"]::placeholder {
-    color: #64748B;
+            &:active {
+                background-color: var(--white);
+                color: var(--main);
+                border: 1px solid var(--main);
+                border-radius: 8px;
+            }
+        }
+
+        input[type="number"],
+        select {
+            -moz-appearance: textfield;
+            -webkit-appearance: none;
+            appearance: none;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            width: 100%;
+            padding: 8px 0;
+            border: none;
+            outline: none;
+            color: var(--placeholder);
+        }
+
+        input[type="number"]::placeholder {
+            color: var(--placeholder);
+        }
+
+        input[type="number"] + span,
+        select + img {
+            margin-left: 8px;
+            color: var(--main);
+        }
+
+
+        select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background-color: transparent;
+        }
+
+        img {
+            width: 16px;
+            height: 16px;
+        }
+    }
 }
-
-input[type="number"] + span,
-select + img {
-    margin-left: 8px;
-    color: var(--main);
-}
-
-
-select {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: transparent;
-}
-
-
-img {
-    width: 16px;
-    height: 16px;
-}
-

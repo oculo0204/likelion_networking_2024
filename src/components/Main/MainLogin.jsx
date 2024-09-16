@@ -26,41 +26,43 @@ const MainLogin = () => {
     };
 
     return (
-        <div className='container'>
-            <div className="mainLogin_wrap">
+        <div className='mainLogin_wrap container'>
+            <div className="boxes">
                 <div className="box">
-                    <h2 className="titleMain">지금 바로 떠날 여행지 추천</h2>
+                    <h2 className="box-title">지금 바로 떠날 여행지 추천</h2>
                     <div className="image-container">
-                       <img className="arrow left" src={arrowLeft} alt="왼쪽 화살표" onClick={handlePrevClick} />
-                       <img src={images[currentIndex]} alt="여행지 추천" />
-                       <img className="arrow right" src={arrowRight} alt="오른쪽 화살표" onClick={handleNextClick} />
+                        <img className="arrow left" src={arrowLeft} alt="왼쪽 화살표" onClick={handlePrevClick}/>
+                        <img src={images[currentIndex]} alt="여행지 추천"/>
+                        <img className="arrow right" src={arrowRight} alt="오른쪽 화살표" onClick={handleNextClick}/>
                     </div>
-                    <p className="description">밀양 언택트 여행 :: 혼자 여행하기 좋은 여행코스, ...</p>
-                    <p className="date">2024-08-07</p>
+                    <div className="des">
+                        <p className="description">밀양 언택트 여행 :: 혼자 여행하기 좋은 여행코스, ...</p>
+                        <p className="date">2024-08-07</p>
+                    </div>
                 </div>
-                    <div className="box">
-                        <h2 className="titleMain">여행 떠나기</h2>
-                        <div className="btns">
-                            <Link to="/aiSuggest">
-                                <button>AI 여행지 추천받기</button>
-                            </Link>
-                            <Link to="/aiSuggest"> {/* 링크 수정 필요합니다 */}
-                                <button>그룹 생성하기</button>
-                            </Link>
-                        </div>
+                <div className="box">
+                    <h2 className="box-title">여행 떠나기</h2>
+                    <div className="btns">
+                        <Link to="/aiSuggest">
+                            <button>AI 여행지 추천받기</button>
+                        </Link>
+                        <Link to="/team">
+                            <button>그룹 생성하기</button>
+                        </Link>
                     </div>
-                    <div className="box">
-                        <h2 className="titleMain">나의 여행기록</h2>
-                        <div className="btns">
-                            <Link to="/aiSuggest"> {/* 링크 수정 필요합니다 */}
-                                <button>현재 진행중인 여행</button>
-                            </Link>
-                            <Link to="/aiSuggest"> {/* 링크 수정 필요합니다 */}
-                                <button>이전 여행</button>
-                            </Link>
-                        </div>
+                </div>
+                <div className="box">
+                    <h2 className="box-title">나의 여행기록</h2>
+                    <div className="btns">
+                        <Link to="/travel/:now">
+                            <button>현재 진행중인 여행</button>
+                        </Link>
+                        <Link to="/travel/done">
+                            <button>이전 여행</button>
+                        </Link>
                     </div>
-               </div>
+                </div>
+            </div>
         </div>
     )
 }
