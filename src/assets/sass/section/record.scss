@@ -18,7 +18,7 @@
         a {
             display: flex;
             align-items: center;
-            
+
             .back-btn-img {
                 width: auto;
                 height: auto;
@@ -37,18 +37,89 @@
         }
     }
 
-    .report-section {
+    .record-section {
         background-color: #F7F8FA;
         padding: 20px;
         border-radius: 10px;
         margin-top: 120px;
 
-        h1 {
+        &.editing .input-field input {
+            font-size: 14px;
+        }
+
+        &.saved .show-amount {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-align: left;
+            color: #000000;
+            background-color: #F7F8FA;
+            border: none;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            margin-left: -7px;
+        }
+
+        &.saved .currency {
+            color: #007bff;
+            font-size: 28px;
+            margin-left: 8px;
+        }
+
+        .show-category {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            font-size: 14px;
+            color: #007bff;
+
+            .category-item {
+                border: 1px solid #007bff;
+                border-radius: 10px;
+                padding: 5px 14px;
+            }
+        }
+
+        .show-member {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            margin-bottom: 15px;
+
+
+            .member-item {
+                margin-left: 4px;
+                margin-right: 2px;
+                border: 1px solid #007bff;
+                border-radius: 10px;
+                padding: 5px 10px;
+                color: #007bff;
+
+                &:first-child {
+                    margin-left: 250px;
+                }
+            }
+        }
+
+        .title-input {
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 15px;
             text-align: center;
             color: #9a9fa8;
+            background-color: #F7F8FA;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            padding: 10px;
         }
 
         .input-field {
@@ -58,7 +129,7 @@
             margin-bottom: 15px;
 
             input {
-                padding: 14px;
+                padding: 13px;
                 font-size: 14px;
                 border: 1px solid #ddd;
                 border-radius: 5px;
@@ -78,30 +149,31 @@
             position: relative;
             margin-bottom: 15px;
 
-            select {
+            .react-select__control {
                 width: 100%;
                 padding: 12px;
-                font-size: 14px;
+                font-size: 12px;
                 border: 1px solid #ddd;
                 border-radius: 5px;
-                appearance: none;
                 background: white;
             }
         }
 
-        .receipt {
+        .receipt,
+        .memo {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             margin-bottom: 15px;
             background-color: white;
+            border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px;
 
             label {
-                font-size: 14px;
-                margin-bottom: 5px;
+                font-size: 15.5px;
                 color: #333;
+                margin-bottom: 5px;
             }
 
             .photo-box {
@@ -114,37 +186,23 @@
                 border-radius: 5px;
                 cursor: pointer;
                 position: relative;
-
-                .uploaded-img {
-                    max-width: 100%;
-                    max-height: 100%;
-                    border-radius: 5px;
-                }
-
-                .upload-label {
-                    cursor: pointer;
-                    text-align: center;
-                    color: #333;
-                    font-size: 14px;
-                }
+                overflow: hidden;
             }
-        }
-        
-        
-        .memo {
-            background-color: white;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 15px;
 
-            label {
-                font-size: 14px;
+            .uploaded-img {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+            }
+
+            .upload-label {
+                cursor: pointer;
+                text-align: center;
                 color: #333;
-                margin-bottom: 5px;
+                font-size: 14px;
             }
 
-            textarea, .photo-box {
+            textarea {
                 width: 100%;
                 padding: 10px;
                 font-size: 14px;
@@ -152,33 +210,45 @@
                 border-radius: 5px;
                 background-color: #ffffff;
             }
-
         }
+
     }
 
-    .buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-
-        button {
-            width: 48%;
-            padding: 10px;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-
-            &.submit {
-                background-color: #007bff;
-                color: white;
-            }
-
-            &.cancel {
-                background-color: #f8f8f8;
-                color: #333;
-                border: 1px solid #ddd;
-            }
+    .saved-section {
+        .input-field {
+            margin-top: 20px;
         }
     }
 }
+
+// 버튼 스타일 섹션
+.buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;  
+    align-items: center !important;     
+    margin-top: 20px;
+    gap: 10px;                           
+
+    button {
+        width: 50%;                      // 버튼의 너비를 각각 40%로 설정
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;              // 버튼 안의 텍스트도 중앙 정렬
+
+        &.submit {
+            background-color: #007bff;
+            color: white;
+        }
+
+        &.cancel {
+            background-color: #f8f8f8;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+    }
+}
+
