@@ -1,5 +1,5 @@
 .AiResult_wrap,
-.AiResultPart_wrap{
+.AiResultPart_wrap {
     padding: 80px 20px;
     display: flex;
     flex-direction: column;
@@ -46,16 +46,17 @@
         flex-direction: column;
         margin-top: 20px;
 
-        h2{
+        h2 {
             font-weight: 500;
             font-size: 20px;
             margin-bottom: 8px;
         }
 
-        p{
+        p {
             font-size: 14px;
         }
     }
+
     .buttons {
         display: flex;
         flex-direction: column;
@@ -128,10 +129,12 @@ ul {
         font-weight: 600;
         margin-top: 10px;
     }
+
     ul {
         list-style-type: disc;
         padding-left: 30px;
     }
+
     .partDay {
         margin-bottom: 10px;
     }

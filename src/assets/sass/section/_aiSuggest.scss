@@ -41,7 +41,7 @@
                 flex-direction: column;
                 justify-content: space-between;
 
-                > div {
+                >div {
                     h3 {
                         text-align: left;
                         font-size: 16px;
@@ -109,11 +109,13 @@
             -moz-appearance: textfield;
             -webkit-appearance: none;
             appearance: none;
+
             &::-webkit-outer-spin-button,
             &::-webkit-inner-spin-button {
                 -webkit-appearance: none;
                 margin: 0;
             }
+
             width: 100%;
             padding: 8px 0;
             border: none;
@@ -125,8 +127,8 @@
             color: var(--placeholder);
         }
 
-        input[type="number"] + span,
-        select + img {
+        input[type="number"]+span,
+        select+img {
             margin-left: 8px;
             color: var(--main);
         }
