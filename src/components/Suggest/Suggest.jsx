@@ -18,7 +18,6 @@ const Suggest = () => {
             subtitle: '일본 다카마쓰 여행 :: 혼자 여행하기 좋은 여행코스, 가볼만한 곳 ...',
             date: '2024-08-07',
         },
-        // 동일한 정보를 반복해서 4개 추가
         {
             id: 2,
             image: image96,
@@ -37,11 +36,23 @@ const Suggest = () => {
             subtitle: '일본 다카마쓰 여행 :: 혼자 여행하기 좋은 여행코스, 가볼만한 곳 ...',
             date: '2024-08-07',
         },
+        {
+            id: 5,
+            image: image96,
+            subtitle: '일본 다카마쓰 여행 :: 혼자 여행하기 좋은 여행코스, 가볼만한 곳 ...',
+            date: '2024-08-07',
+        },
+        {
+            id: 6,
+            image: image96,
+            subtitle: '일본 다카마쓰 여행 :: 혼자 여행하기 좋은 여행코스, 가볼만한 곳 ...',
+            date: '2024-08-07',
+        },
     ];
 
     return (
-        <div className="container">
-            <div className='suggest_wrap'>
+        <div className="Suggest_wrap container">
+            <div>
                 <div className='subHeader'>
                      <button onClick={() => navigate(-1)}>
                         <img src={Back} alt="Back" className='back' />
@@ -52,25 +63,6 @@ const Suggest = () => {
                         <button className="whiteBtnWide"> AI 여행지 추천받기 </button>
                     </Link>
                 <h2 className="titleMain">지금 바로 떠날 여행지 추천</h2>
-
-                {/* <div className="tabs">
-                    {travel.map(destination => (
-                        <Link to={`/suggest/${destination.id}`} key={destination.id} className="tab">
-                            <h3>{destination.name}</h3>
-                        </Link>
-                    ))}
-                </div> */}
-
-                {/* <div className="tabs">
-                    {travel.map((destination) => (
-                        <div key={destination.id} className="tab">
-                            <img src={destination.image} alt={destination.subtitle} className="image" />
-                            <h3 className="subTitleMain">{destination.subtitle}</h3>
-                            <p className="date">{destination.date}</p>
-                        </div>
-                    ))}
-                </div> */}
-
                 <div className="tabs">
                     {travel.map((destination) => (
                         <Link to={`/suggest/${destination.id}`} key={destination.id} className="tab">
@@ -80,8 +72,6 @@ const Suggest = () => {
                         </Link>
                     ))}
                 </div>
-
-
                 <button className="topBtn" onClick={scrollToTop}>
                     <img src={topBtn} alt="Top" />
                 </button>

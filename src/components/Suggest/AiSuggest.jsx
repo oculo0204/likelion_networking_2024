@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Back from '../../assets/img/Icon/back.svg';
 import Down from '../../assets/img/Icon/down.svg';
-import {  Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const AiSuggest = () => {
     const [startyear, setStartYear] = useState("");
@@ -15,24 +16,39 @@ const AiSuggest = () => {
 
     const navigate = useNavigate();
 
+    const handleAiSuggest = async () => {
+        const data = {
+            budget: Number(budget),
+            startDate: `${startyear}-${String(startmonth).padStart(2, '0')}-${String(startday).padStart(2, '0')}`,
+            endDate: `${backyear}-${String(backmonth).padStart(2, '0')}-${String(backday).padStart(2, '0')}`,
+            numOffPeople: Number(people)
+        };
+
+        try {
+            const response = await axios.post('http://beancp.com:8082/travel/recommend', data);
+            navigate('/aiResult', { state: { results: response.data, ...data } });
+        } catch (error) {
+            console.error('API 요청 실패:', error);
+            alert('API 요청에 실패했습니다. 다시 시도해주세요.');
+        }
+    };
+
     const years = Array.from({ length: 10 }, (_, i) => 2033 - i);
     const months = Array.from({ length: 12 }, (_, i) => i + 1);
     const days = Array.from({ length: 31 }, (_, i) => i + 1);
-     const peopleOptions = Array.from({ length: 10 }, (_, i) => i + 1);
+    const peopleOptions = Array.from({ length: 10 }, (_, i) => i + 1);
 
     return (
-        <div className='container'>
-            <div className='suggest_wrap'>
-                    <div className='subHeader'>
-                         <button onClick={() => navigate(-1)}>
-                            <img src={Back} alt="Back" className='back' />
-                        </button>
-                        <h1>AI 여행지 추천받기</h1>
-                    </div>
-
-
-                <div className="main">
-                     <div className="budget_wrap">
+        <div className='AiSuggest_wrap container'>
+            <div>
+                <div className='subHeader'>
+                    <button onClick={() => navigate(-1)}>
+                        <img src={Back} alt="Back" className='back' />
+                    </button>
+                    <h1>AI 여행지 추천받기</h1>
+                </div>
+                <div className="Ai-Box">
+                    <div className="budget_wrap">
                         <div className="input_wrap">
                             <input
                                 type="number"
@@ -84,7 +100,7 @@ const AiSuggest = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div className='comeback'>
+                            <div className='arrival'>
                                 <h3>도착</h3>
                                 <div className='toggle_wrap'>
                                     <label>
@@ -141,12 +157,10 @@ const AiSuggest = () => {
                             <img src={Down} alt="" />
                         </div>
                     </div>
-                    <Link to="/aiResult">
-                        <button className="blueBtn"> AI 추천 결과 확인하기 </button>
-                    </Link>
+                    <button className="blueBtn" onClick={handleAiSuggest}> AI 추천 결과 확인하기 </button>
                 </div>
             </div>
-      </div>
+        </div>
     );
 };
 
