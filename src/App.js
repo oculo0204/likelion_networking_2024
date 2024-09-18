@@ -24,7 +24,7 @@ import MainLogin from './components/Main/MainLogin'
 import AiSuggest from './components/Suggest/AiSuggest'
 import AiResult from './components/Suggest/AiResult'
 import AiResultPart from './components/Suggest/AiResultPart'
-import SuggestDetail from './components/Suggest/SuggestDetail'; // 동적 페이지 컴포넌트
+import SuggestDetail from './components/Suggest/SuggestDetail';
 
 const App = () => {
     return (
