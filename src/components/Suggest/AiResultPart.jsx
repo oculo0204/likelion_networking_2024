@@ -38,7 +38,7 @@ const AiResultPart = () => {
     return (
         <div className='AiResultPart_wrap container'>
             <div>
-                <div className='subHeader'>
+                <div className='back-btn-head'>
                     <button onClick={() => navigate(-1)}>
                         <img src={Back} alt="Back" className='back' />
                     </button>
