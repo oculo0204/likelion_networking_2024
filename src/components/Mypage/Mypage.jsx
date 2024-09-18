@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Mypage = () => {
     const [isLogoutVisible, setIsLogoutVisible] = useState(false);
-    const navigate = useNavigate;
+    const navigate = useNavigate();
+
     const handleLogin = () => {
         document.getElementById("actionSheet").classList.add("active");
     };
@@ -21,9 +22,16 @@ const Mypage = () => {
         }, 1000); 
     };
 
-    const handleLogout = async() => {
-        setIsLogoutVisible(true); // 로그아웃 완료 상태 토글 띄어줌
-    
+    const handleLogout = async () => {
+        try {
+            // GET 요청을 사용하여 로그아웃 요청을 보냅니다.
+            await axios.get('http://beancp.com:8082/login/logout',{}, { withCredentials: true, });
+            console.log("로그아웃 성공");
+            setIsLogoutVisible(true); // 로그아웃 완료 상태 토글 띄어줌
+            setTimeout(() => navigate('/login'), 2000); // 2초 후 로그인 페이지로 이동
+        } catch (err) {
+            console.log("로그아웃 실패", err);
+        }
     };
 
     const profileImageUrl = DefaultProfilePic; // 임시로 로컬 이미지를 사용
