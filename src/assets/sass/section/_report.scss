@@ -4,6 +4,7 @@
 
     /* 상단 헤더 */
     .back-btn {
+        background-color: var(--white);
         display: flex;
         position: fixed;
         left: 50%;
@@ -15,6 +16,7 @@
         align-items: center;
         box-sizing: border-box;
         padding: 5px 10px;
+        z-index: 10;
 
         a {
             display: flex;
@@ -58,6 +60,11 @@
             font-size: 20px;
             margin-right: 10px;
         }
+    }
+
+    .chart_wrap {
+        overflow-y: scroll;
+        height: 900px;
     }
 
     .chart-container {
