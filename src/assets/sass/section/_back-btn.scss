@@ -6,11 +6,12 @@
     width: 100%;
     max-width: 500px;
     height: 56px;
-
     display: flex;
     align-items: center;
     box-sizing: border-box;
     padding: 5px 10px;
+    z-index: 1000;
+    background-color: white;
 
     a {
 
