@@ -208,7 +208,7 @@
         left: 50%;
         width: 100%;
         max-width: 500px;
-        height: 200px;
+        height: 300px;
         background-color: white;
         border-radius: 20px 20px 0 0;
       
@@ -216,6 +216,7 @@
         padding: 20px;
         box-sizing: border-box;
         z-index: 11;
+
 
         .close-btn {
             position: absolute;
@@ -233,20 +234,44 @@
             flex-direction: column;
             justify-content: center;
             text-align: center;
+            margin-top: 30px;
+
+            .modal-input {
+                width: 80%; /* 인풋의 너비 조정 */
+                padding: 15px;
+                font-size: 14px;
+                border-radius: 8px;
+                background-color: #F7F8FA;
+                margin-top: 10px; /* 인풋을 약간 아래로 */
+                margin-left: 50px;
+                text-align: center; /* 숫자 가운데 정렬 */
+            }
 
             p {
-                margin-top: 55px;
-                font-size: 18px;
+                margin-top: 20px;
+                font-size: 20px;
                 font-weight: bold;
             }
 
             .small-text {
                 color: #a9a9a9;
-                margin-top: 15px;
+                margin-top: 5px;
                 font-size: 14px;
+            }
+
+            .complete-btn {
+                margin-top: 20px;
+                padding: 15px;
+                font-size: 16px;
+                background-color: #1A75FE; /* 파란색 버튼 */
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
             }
         }
     }
+
 
     /* 애니메이션 */
     @keyframes slideUp {

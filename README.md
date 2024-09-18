@@ -18,4 +18,7 @@ git push (자기 브런치) 로 해야합니다!!!!
 5. 질문사항은 카톡으로 물어봐주세요~! 
 
 # 사용한 라이브러리
-코드에서 사용한 라이브러리는 react-chartjs-2와 chart.js입니다 ! (차트 부분)
+코드에서 사용한 라이브러리
+react-chartjs-2, chart.js (차트 부분)
+react-select (record.jsx에서 사용)
+
