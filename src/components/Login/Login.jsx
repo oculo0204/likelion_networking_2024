@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; 
 import IconBack from '../../assets/img/back_btn/Icon_back.svg';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ const Login = () => {
             const response = await axios.post('http://beancp.com:8082/login/login', {
                 id,
                 password
-            });
+            }, { withCredentials: true });
             console.log("로그인 성공");
             navigate('/mainLogin');
         } catch (err) {
@@ -25,9 +25,9 @@ const Login = () => {
     return (
         <main className='container login-main'>
             <div className='back-btn-head'>    
-                <a href='javascript:history.back()'>
+                <Link to='/mainlogout'>
                     <img src={IconBack} alt="Back Icon" className='back-btn-img'/>
-                </a>
+                </Link>
                 <h1>로그인</h1>
             </div>
             <div className='login-input'>
@@ -48,3 +48,4 @@ const Login = () => {
 }
 
 export default Login
+

@@ -1,14 +1,58 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import IconBack from '../../assets/img/back_btn/Icon_back.svg';
 import Down from '../../assets/img/Login/down.svg';
 import Close from '../../assets/img/Mypage/close.svg';
 import DefaultProfilePic from '../../assets/img/Mypage/profile_default.svg'; // 임시 프로필 이미지
+import axios from 'axios';
 
 const Profile = () => {
     const [isAccountDetailsVisible, setAccountDetailsVisible] = useState(true);
+    const [formData, setFormData] = useState({
+        username: '',
+        userId: '',
+        password: '',
+        accountNumber: '',
+        accountName: '',
+        bank: ''
+    });
 
     const handleToggleAccountDetails = () => {
         setAccountDetailsVisible(!isAccountDetailsVisible);
+    };
+
+    const handleSelectBank = (selectedBank) => {
+        setFormData(prevData => ({
+            ...prevData,
+            bank: selectedBank
+        }));
+        setAccountDetailsVisible(true); // 은행 선택 후 계좌 상세 보이게 설정
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+
+    const handleSave = async () => {
+        try {
+            await axios.put('http://beancp.com:8082/user/update', {
+                loginId: formData.userId,
+                name: formData.username,
+                accountName: formData.accountName,
+                accountNumber: parseInt(formData.accountNumber, 10),
+                bank: formData.bank
+            }, { withCredentials: true });
+
+            document.getElementById("actionSheet").classList.add("active");
+            setTimeout(() => {
+                document.getElementById("actionSheet").classList.remove("active");
+            }, 2000);
+        } catch (err) {
+            console.error("회원 정보 수정 실패", err);
+        }
     };
 
     const handleLogin = () => {
@@ -34,7 +78,14 @@ const Profile = () => {
                 <form className='profile-form'>
                     <div className='input-group'>
                         <label htmlFor='username'>이름</label>
-                        <input type='text' id='username' name='username' placeholder='이름을 입력하세요' />
+                        <input
+                            type='text'
+                            id='username'
+                            name='username'
+                            placeholder='이름을 입력하세요'
+                            value={formData.username}
+                            onChange={handleInputChange}
+                        />
                     </div>
                     <div className='input-image'>
                         <h1>프로필 사진 변경</h1>
@@ -46,40 +97,68 @@ const Profile = () => {
                     </div>
                     <div className='input-group'>
                         <label htmlFor='userId'>아이디</label>
-                        <input type='text' id='userId' name='userId' placeholder='아이디를 입력하세요' />
+                        <input
+                            type='text'
+                            id='userId'
+                            name='userId'
+                            placeholder='아이디를 입력하세요'
+                            value={formData.userId}
+                            onChange={handleInputChange}
+                        />
                     </div>
                     <div className='input-group'>
                         <label htmlFor='password'>비밀번호</label>
-                        <input type='password' id='password' name='password' placeholder='비밀번호를 입력하세요' />
+                        <input
+                            type='password'
+                            id='password'
+                            name='password'
+                            placeholder='비밀번호를 입력하세요'
+                            value={formData.password}
+                            onChange={handleInputChange}
+                        />
                     </div>
                     <div className='input-group account-wrap'>
                         <label htmlFor='account'>계좌번호</label>
                         <p>여행 비용 정산시 친구들에게 알려줄 계좌번호를 입력하세요</p>
                         <button type='button' className='toggle-button' onClick={handleToggleAccountDetails}>
-                            은행 정보 {isAccountDetailsVisible ? <img src={Down} className="downArrow" alt="Down Arrow" /> : <img src={Down} className="downArrow flipped" alt="Up Arrow" />}
+                            {formData.bank || '은행 정보'} {isAccountDetailsVisible ? <img src={Down} className="downArrow" alt="Down Arrow" /> : <img src={Down} className="downArrow flipped" alt="Up Arrow" />}
                         </button>
                         {!isAccountDetailsVisible && (
                             <div className='bank-list'>
-                                <button type='button' className='bank-button'>NH농협은행</button>
-                                <button type='button' className='bank-button'>IBK기업은행</button>
-                                <button type='button' className='bank-button'>우리은행</button>
-                                <button type='button' className='bank-button'>신한은행</button>
-                                <button type='button' className='bank-button'>KEB하나은행</button>
-                                <button type='button' className='bank-button'>KB국민은행</button>
-                                <button type='button' className='bank-button'>카카오뱅크</button>
-                                <button type='button' className='bank-button'>SC제일은행</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('NH농협은행')}>NH농협은행</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('IBK기업은행')}>IBK기업은행</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('우리은행')}>우리은행</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('신한은행')}>신한은행</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('KEB하나은행')}>KEB하나은행</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('KB국민은행')}>KB국민은행</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('카카오뱅크')}>카카오뱅크</button>
+                                <button type='button' className='bank-button' onClick={() => handleSelectBank('SC제일은행')}>SC제일은행</button>
                             </div>
                         )}
                         <div className='account-details'>
-                            <input type='text' id='account' name='account' placeholder='계좌번호를 입력하세요 (숫자만 입력하세요)' />
-                            <input type='text' id='account-name' name='account-name' placeholder='예금주명을 입력하세요 (선택)' />
+                            <input
+                                type='text'
+                                id='account'
+                                name='accountNumber'
+                                placeholder='계좌번호를 입력하세요 (숫자만 입력하세요)'
+                                value={formData.accountNumber}
+                                onChange={handleInputChange}
+                            />
+                            <input
+                                type='text'
+                                id='account-name'
+                                name='accountName'
+                                placeholder='예금주명을 입력하세요 (선택)'
+                                value={formData.accountName}
+                                onChange={handleInputChange}
+                            />
                             <p className='caution'>*정상적으로 입금할 수 있도록, 입력한 정보가 정확한지 다시 한번 확인해주세요!</p>
                         </div>
                     </div>
                 </form>
             </div>
             <div className='profile-bottom'>
-                <button type='button' className='save-btn' onClick={handleLogin}>저장</button>
+                <button type='button' className='save-btn' onClick={handleSave}>저장</button>
                 <button type='button' className='cancel-btn'>취소</button>
             </div>
             <div className="action-sheet" id="actionSheet" onClick={close}>

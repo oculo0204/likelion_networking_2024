@@ -231,6 +231,110 @@
         }
 
     }
+    #actionSheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    
+        transition: 1s;
+    
+        /* 서서히 나타나는 효과 */
+        visibility: hidden;
+        opacity: 0;
+        z-index: 700;
+      }
+      #actionSheet.active {
+        /* 서서히 나타나는 효과 */
+        visibility: visible;
+        opacity: 1;
+      }
+    
+      .action-options {
+        background-color: #fff;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        /* 세로 컨텐츠가 늘어나는 경우 스크롤이 생기도록 설정 */
+        overflow: auto;
+    
+        max-height: 300px;
+        /* 아래에서 위로 나타나는 효과, max-height과 동일하게 작성 */
+        position: relative;
+        bottom: -300px;
+    
+        transition: 1s;
+      }
+      #actionSheet.active .action-options {
+        /* 아래에서 위로 나타나는 효과, max-height과 동일하게 작성 */
+        bottom: 0;
+        
+      }
+    
+      .action-options{
+        display: flex;
+        justify-content: center;
+        .option {
+            width: 492px;
+            height: 227px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h1{
+                width: 335px;
+                height: 30px;
+                font-family: "Pretendard";
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 30px;
+                letter-spacing: -0.02em;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            button{
+                width: 460px;
+                height: 50px;
+                padding: 13px 20px;
+                gap: 4px;
+                border-radius: 8px;
+                background-color: var(--red);
+                color: var(--white);
+                margin-bottom: -10px;
+            }
+          }
+                
+      .close{
+        position: absolute;
+        top:20px;
+        right:20px;
+      }
+      }
+    
+    
+      
+      .toLogout {
+        width: 492px;
+        height: 227px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1{
+            width: 335px;
+            height: 30px;
+            font-family: "Pretendard";
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 30px;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+    
+      }
 }
 
 .profile-main {
@@ -336,7 +440,6 @@
                     border-color: var(--white200);
                     margin-bottom: 20px;
                 }
-
                 .toggle-button {
                     width: 420px;
                     height: 58px;
@@ -360,17 +463,14 @@
                         max-height: 6px;
                         margin-right: 2px;
                     }
-
                     .flipped {
                         transform: rotate(180deg);
                     }
                 }
-
                 .account-details {
                     margin-top: 10px;
                     transition: max-height 0.3s ease-out;
                     overflow: hidden;
-
                     input {
                         display: block;
                         margin-bottom: 10px;
@@ -419,7 +519,6 @@
                         border-color: var(--white200);
                         color: var(--placeholder);
                     }
-
                     button:hover {
                         background-color: #f0f0f0;
                     }
@@ -513,7 +612,6 @@
         border-top-right-radius: 30px;
         /* 세로 컨텐츠가 늘어나는 경우 스크롤이 생기도록 설정 */
         overflow: auto;
-
         max-height: 300px;
         /* 아래에서 위로 나타나는 효과, max-height과 동일하게 작성 */
         position: relative;
