@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import IconBack from '../../assets/img/back_btn/Icon_back.svg';
 import Down from '../../assets/img/Login/down.svg';
+import { Link } from 'react-router-dom'; // Link 컴포넌트 추가
 
 function Signup() {
     const[loginId, setLoginId] = useState('');
@@ -14,12 +15,16 @@ function Signup() {
     const [isAccountDetailsVisible, setAccountDetailsVisible] = useState(true);
     const navigate = useNavigate();
 
-    //은행리스트 토글
+    // 은행 리스트 토글
     const handleToggleAccountDetails = () => {
         setAccountDetailsVisible(!isAccountDetailsVisible);
     };
-    
-    const handleSignup = async() => {
+    const handleSelectBank = (selectedBank) => {
+        setBank(selectedBank);
+        setAccountDetailsVisible(true); // 은행 선택 후 계좌 상세 보이게 설정
+    };
+
+    const handleSignup = async () => {
         try {
             const response = await axios.post('http://beancp.com:8082/login/signUp', {
                 loginId,
@@ -28,11 +33,10 @@ function Signup() {
                 bank,
                 accountNumber,
                 accountName
-            }
-        );
-        
+            });
+
             console.log('회원가입 성공:', response.data); // 응답 데이터 로그
-            navigate('/login');
+            navigate('/login/signupSuccess');
         } catch (err) {
             console.error('회원가입 에러:', err.response?.data || err.message); // 응답 데이터 로그
         }
@@ -42,9 +46,9 @@ function Signup() {
         <div>
             <main className='container signup-main'>
                 <div className='back-btn-head'>    
-                    <a href='javascript:history.back()'>
-                        <img src={IconBack} alt="Back Icon" className='back-btn-img'/>
-                    </a>
+                <Link to='/mainlogout'>
+                    <img src={IconBack} alt="Back Icon" className='back-btn-img'/>
+                </Link>
                     <h1>회원가입</h1>
                 </div>
                 <div className='signup-input'>
@@ -69,29 +73,29 @@ function Signup() {
                             </button>
                             {!isAccountDetailsVisible && (
                                 <div className='bank-list'>
-                                    <button type='button' className='bank-button' onClick={() => setBank('NH농협은행')}>NH농협은행</button>
-                                    <button type='button' className='bank-button' onClick={() => setBank('IBK기업은행')}>IBK기업은행</button>
-                                    <button type='button' className='bank-button' onClick={() => setBank('우리은행')}>우리은행</button>
-                                    <button type='button' className='bank-button' onClick={() => setBank('신한은행')}>신한은행</button>
-                                    <button type='button' className='bank-button' onClick={() => setBank('KEB하나은행')}>KEB하나은행</button>
-                                    <button type='button' className='bank-button' onClick={() => setBank('KB국민은행')}>KB국민은행</button>
-                                    <button type='button' className='bank-button' onClick={() => setBank('카카오뱅크')}>카카오뱅크</button>
-                                    <button type='button' className='bank-button' onClick={() => setBank('SC제일은행')}>SC제일은행</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('NH농협은행')}>NH농협은행</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('IBK기업은행')}>IBK기업은행</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('우리은행')}>우리은행</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('신한은행')}>신한은행</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('KEB하나은행')}>KEB하나은행</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('KB국민은행')}>KB국민은행</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('카카오뱅크')}>카카오뱅크</button>
+                                    <button type='button' className='bank-button' onClick={() => handleSelectBank('SC제일은행')}>SC제일은행</button>
                                 </div>
                             )}
                             <div className='account-details'>
-                                    <input type='text' id='account' name='account' placeholder='계좌번호를 입력하세요 (숫자만 입력하세요)' value={accountNumber} onChange={(e) => setAccountNumber(e.target.value)}/>
-                                    <input type='text' id='account-name' name='account-name' placeholder='예금주명을 입력하세요 (선택)' value={accountName} onChange={(e) => setAccountName(e.target.value)}/>
-                                    <p className='caution'>*정상적으로 입금할 수 있도록, 입력한 정보가 정확한지 다시 한번 확인해주세요!</p>
+                                <input type='text' id='account' name='account' placeholder='계좌번호를 입력하세요 (숫자만 입력하세요)' value={accountNumber} onChange={(e) => setAccountNumber(e.target.value)}/>
+                                <input type='text' id='account-name' name='account-name' placeholder='예금주명을 입력하세요 (선택)' value={accountName} onChange={(e) => setAccountName(e.target.value)}/>
+                                <p className='caution'>*정상적으로 입금할 수 있도록, 입력한 정보가 정확한지 다시 한번 확인해주세요!</p>
                             </div>
                         </div>
                     </form>
                 </div>
                 <button type='button' className='signup-btn' onClick={handleSignup}>회원가입</button>
-                <a href="#" className='Tologin'>기존 계정으로 로그인</a>
+                <Link to="/login" className='Tologin'>기존 계정으로 로그인</Link> 
             </main>
         </div>
     );
 }
 
-export default Signup
+export default Signup;
